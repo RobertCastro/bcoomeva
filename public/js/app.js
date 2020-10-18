@@ -3058,111 +3058,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3185,15 +3080,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     switchToTeam: function switchToTeam(team) {
-      this.$inertia.put(route("current-team.update"), {
-        team_id: team.id
+      this.$inertia.put(route('current-team.update'), {
+        'team_id': team.id
       }, {
         preserveState: false
       });
     },
     logout: function logout() {
-      axios.post(route("logout").url()).then(function (response) {
-        window.location = "/";
+      axios.post(route('logout').url()).then(function (response) {
+        window.location = '/';
       });
     }
   },
@@ -24767,7 +24662,26 @@ var render = function() {
                         active: _vm.$page.currentRouteName == "dashboard"
                       }
                     },
-                    [_vm._v("\n              Dashboard\n            ")]
+                    [
+                      _vm._v(
+                        "\n                            Dashboard\n                        "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "jet-nav-link",
+                    {
+                      attrs: {
+                        href: _vm.route("projects.index"),
+                        active: _vm.$page.currentRouteName.includes("projects")
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                            Proyectos\n                        "
+                      )
+                    ]
                   )
                 ],
                 1
@@ -24859,7 +24773,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                  Manage Account\n                "
+                                    "\n                                    Manage Account\n                                "
                                   )
                                 ]
                               ),
@@ -24869,7 +24783,7 @@ var render = function() {
                                 { attrs: { href: _vm.route("profile.show") } },
                                 [
                                   _vm._v(
-                                    "\n                  Profile\n                "
+                                    "\n                                    Profile\n                                "
                                   )
                                 ]
                               ),
@@ -24884,7 +24798,7 @@ var render = function() {
                                     },
                                     [
                                       _vm._v(
-                                        "\n                  API Tokens\n                "
+                                        "\n                                    API Tokens\n                                "
                                       )
                                     ]
                                   )
@@ -24904,7 +24818,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                    Manage Team\n                  "
+                                          "\n                                        Manage Team\n                                    "
                                         )
                                       ]
                                     ),
@@ -24921,7 +24835,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                    Team Settings\n                  "
+                                          "\n                                        Team Settings\n                                    "
                                         )
                                       ]
                                     ),
@@ -24936,7 +24850,7 @@ var render = function() {
                                           },
                                           [
                                             _vm._v(
-                                              "\n                    Create New Team\n                  "
+                                              "\n                                        Create New Team\n                                    "
                                             )
                                           ]
                                         )
@@ -24954,7 +24868,7 @@ var render = function() {
                                       },
                                       [
                                         _vm._v(
-                                          "\n                    Switch Teams\n                  "
+                                          "\n                                        Switch Teams\n                                    "
                                         )
                                       ]
                                     ),
@@ -25051,7 +24965,11 @@ var render = function() {
                                   _c(
                                     "jet-dropdown-link",
                                     { attrs: { as: "button" } },
-                                    [_vm._v(" Logout ")]
+                                    [
+                                      _vm._v(
+                                        "\n                                        Logout\n                                    "
+                                      )
+                                    ]
                                   )
                                 ],
                                 1
@@ -25147,7 +25065,18 @@ var render = function() {
                       active: _vm.$page.currentRouteName == "dashboard"
                     }
                   },
-                  [_vm._v("\n          Dashboard\n        ")]
+                  [_vm._v("\n                    Dashboard\n                ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "jet-responsive-nav-link",
+                  {
+                    attrs: {
+                      href: _vm.route("projects.index"),
+                      active: _vm.$page.currentRouteName.includes("projects")
+                    }
+                  },
+                  [_vm._v("\n                    Proyectos\n                ")]
                 )
               ],
               1
@@ -25169,25 +25098,13 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "font-medium text-base text-gray-800" },
-                    [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(_vm.$page.user.name) +
-                          "\n            "
-                      )
-                    ]
+                    [_vm._v(_vm._s(_vm.$page.user.name))]
                   ),
                   _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "font-medium text-sm text-gray-500" },
-                    [
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(_vm.$page.user.email) +
-                          "\n            "
-                      )
-                    ]
+                    [_vm._v(_vm._s(_vm.$page.user.email))]
                   )
                 ])
               ]),
@@ -25204,7 +25121,11 @@ var render = function() {
                         active: _vm.$page.currentRouteName == "profile.show"
                       }
                     },
-                    [_vm._v("\n            Profile\n          ")]
+                    [
+                      _vm._v(
+                        "\n                        Profile\n                    "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _vm.$page.jetstream.hasApiFeatures
@@ -25217,7 +25138,11 @@ var render = function() {
                               _vm.$page.currentRouteName == "api-tokens.index"
                           }
                         },
-                        [_vm._v("\n            API Tokens\n          ")]
+                        [
+                          _vm._v(
+                            "\n                        API Tokens\n                    "
+                          )
+                        ]
                       )
                     : _vm._e(),
                   _vm._v(" "),
@@ -25236,7 +25161,11 @@ var render = function() {
                       _c(
                         "jet-responsive-nav-link",
                         { attrs: { as: "button" } },
-                        [_vm._v("\n              Logout\n            ")]
+                        [
+                          _vm._v(
+                            "\n                            Logout\n                        "
+                          )
+                        ]
                       )
                     ],
                     1
@@ -25251,7 +25180,11 @@ var render = function() {
                           {
                             staticClass: "block px-4 py-2 text-xs text-gray-400"
                           },
-                          [_vm._v("\n              Manage Team\n            ")]
+                          [
+                            _vm._v(
+                              "\n                            Manage Team\n                        "
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
@@ -25267,7 +25200,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n              Team Settings\n            "
+                              "\n                            Team Settings\n                        "
                             )
                           ]
                         ),
@@ -25283,7 +25216,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n              Create New Team\n            "
+                              "\n                            Create New Team\n                        "
                             )
                           ]
                         ),
@@ -25295,7 +25228,11 @@ var render = function() {
                           {
                             staticClass: "block px-4 py-2 text-xs text-gray-400"
                           },
-                          [_vm._v("\n              Switch Teams\n            ")]
+                          [
+                            _vm._v(
+                              "\n                            Switch Teams\n                        "
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _vm._l(_vm.$page.user.all_teams, function(team) {
