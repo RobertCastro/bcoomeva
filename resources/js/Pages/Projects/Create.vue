@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Crea un nuevo proyecto con Inertia
+                Crea un nuevo proyecto
             </h2>
         </template>
 
