@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Ramsey\Uuid\Type\Integer;
 
 class ProjectController extends Controller
 {
@@ -22,5 +23,10 @@ class ProjectController extends Controller
                 ->filter(request()->only("search", "trashed"))
                 ->paginate(5)
         ]);
+    }
+
+    public function create() 
+    {
+        return Inertia::render("Projects/Create");
     }
 }
