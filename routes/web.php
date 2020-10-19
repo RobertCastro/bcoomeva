@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\DataController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +21,11 @@ Route::get('/', function () {
 });
 
 Route::group(["middleware" => ['auth:sanctum', 'verified']], function () {
-    Route::get("/dashboard", function () {
-        return Inertia\Inertia::render('Dashboard');
-    })->name("dashboard");
+    // Route::get("/dashboard", function () {
+    //     return Inertia\Inertia::render('Dashboard');
+    // })->name("dashboard");
+
+    Route::resource("dashboard", DataController::class)->except(["show"]);
 
     Route::resource("projects", ProjectController::class)->except(["show"]);
 });

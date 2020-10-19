@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Data;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -22,11 +23,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            "name" => "youtube",
-            "email" => "youtube@cursosdesarrolloweb.es",
-            "password" => bcrypt("password"),
+            "name" => "Alejo Castro",
+            "email" => "hi@alecastro.com",
+            "password" => bcrypt("1234"),
         ]);
 
         Project::factory(200)->create();
+        Data::factory(50)->create();
     }
 }
