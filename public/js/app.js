@@ -31459,7 +31459,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\n                                    Manage Account\n                                "
+                                    "\n                                    Administrar Cuenta\n                                "
                                   )
                                 ]
                               ),
@@ -31469,7 +31469,7 @@ var render = function() {
                                 { attrs: { href: "/user/profile" } },
                                 [
                                   _vm._v(
-                                    "\n                                    Profile\n                                "
+                                    "\n                                    Perfil\n                                "
                                   )
                                 ]
                               ),
@@ -31644,7 +31644,7 @@ var render = function() {
                                     { attrs: { as: "button" } },
                                     [
                                       _vm._v(
-                                        "\n                                        Logout\n                                    "
+                                        "\n                                        Salir\n                                    "
                                       )
                                     ]
                                   )
@@ -33311,7 +33311,7 @@ var render = function() {
                   staticClass:
                     "font-semibold text-xl text-gray-800 leading-tight"
                 },
-                [_vm._v("\n            Profile\n        ")]
+                [_vm._v("\n            Perfil\n        ")]
               )
             ]
           },
@@ -33332,32 +33332,7 @@ var render = function() {
             _vm._v(" "),
             _c("jet-section-border"),
             _vm._v(" "),
-            _c("update-password-form", { staticClass: "mt-10 sm:mt-0" }),
-            _vm._v(" "),
-            _vm.$page.jetstream.canManageTwoFactorAuthentication
-              ? _c(
-                  "div",
-                  [
-                    _c("jet-section-border"),
-                    _vm._v(" "),
-                    _c("two-factor-authentication-form", {
-                      staticClass: "mt-10 sm:mt-0"
-                    })
-                  ],
-                  1
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _c("jet-section-border"),
-            _vm._v(" "),
-            _c("logout-other-browser-sessions-form", {
-              staticClass: "mt-10 sm:mt-0",
-              attrs: { sessions: _vm.sessions }
-            }),
-            _vm._v(" "),
-            _c("jet-section-border"),
-            _vm._v(" "),
-            _c("delete-user-form", { staticClass: "mt-10 sm:mt-0" })
+            _c("update-password-form", { staticClass: "mt-10 sm:mt-0" })
           ],
           1
         )
@@ -33624,7 +33599,7 @@ var render = function() {
       {
         key: "title",
         fn: function() {
-          return [_vm._v("\n        Update Password\n    ")]
+          return [_vm._v("\n        Actualizar Contraseña\n    ")]
         },
         proxy: true
       },
@@ -33633,7 +33608,7 @@ var render = function() {
         fn: function() {
           return [
             _vm._v(
-              "\n        Ensure your account is using a long, random password to stay secure.\n    "
+              "\n        Asegúrese de que su cuenta esté usando una contraseña larga y aleatoria para mantenerse seguro.\n    "
             )
           ]
         },
@@ -33648,7 +33623,7 @@ var render = function() {
               { staticClass: "col-span-6 sm:col-span-4" },
               [
                 _c("jet-label", {
-                  attrs: { for: "current_password", value: "Current Password" }
+                  attrs: { for: "current_password", value: "Contraseña Actual" }
                 }),
                 _vm._v(" "),
                 _c("jet-input", {
@@ -33681,7 +33656,7 @@ var render = function() {
               { staticClass: "col-span-6 sm:col-span-4" },
               [
                 _c("jet-label", {
-                  attrs: { for: "password", value: "New Password" }
+                  attrs: { for: "password", value: "Nueva Contraseña" }
                 }),
                 _vm._v(" "),
                 _c("jet-input", {
@@ -33715,7 +33690,7 @@ var render = function() {
                 _c("jet-label", {
                   attrs: {
                     for: "password_confirmation",
-                    value: "Confirm Password"
+                    value: "Confirmar Contraseña"
                   }
                 }),
                 _vm._v(" "),
@@ -33756,7 +33731,7 @@ var render = function() {
                 staticClass: "mr-3",
                 attrs: { on: _vm.form.recentlySuccessful }
               },
-              [_vm._v("\n            Saved.\n        ")]
+              [_vm._v("\n            Guardado.\n        ")]
             ),
             _vm._v(" "),
             _c(
@@ -33765,7 +33740,7 @@ var render = function() {
                 class: { "opacity-25": _vm.form.processing },
                 attrs: { disabled: _vm.form.processing }
               },
-              [_vm._v("\n            Save\n        ")]
+              [_vm._v("\n            Guardar\n        ")]
             )
           ]
         },
@@ -33802,7 +33777,7 @@ var render = function() {
       {
         key: "title",
         fn: function() {
-          return [_vm._v("\n        Profile Information\n    ")]
+          return [_vm._v("\n        Información de perfil\n    ")]
         },
         proxy: true
       },
@@ -33811,7 +33786,7 @@ var render = function() {
         fn: function() {
           return [
             _vm._v(
-              "\n        Update your account's profile information and email address.\n    "
+              "\n        Actualice la información de perfil y la dirección de correo electrónico de su cuenta.\n    "
             )
           ]
         },
@@ -33833,9 +33808,7 @@ var render = function() {
                       on: { change: _vm.updatePhotoPreview }
                     }),
                     _vm._v(" "),
-                    _c("jet-label", {
-                      attrs: { for: "photo", value: "Photo" }
-                    }),
+                    _c("jet-label", { attrs: { for: "photo", value: "Foto" } }),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -33899,7 +33872,7 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                Select A New Photo\n            "
+                          "\n                Seleccione una nueva foto\n            "
                         )
                       ]
                     ),
@@ -33919,7 +33892,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                Remove Photo\n            "
+                              "\n                Quitar foto\n            "
                             )
                           ]
                         )
@@ -33938,7 +33911,7 @@ var render = function() {
               "div",
               { staticClass: "col-span-6 sm:col-span-4" },
               [
-                _c("jet-label", { attrs: { for: "name", value: "Name" } }),
+                _c("jet-label", { attrs: { for: "name", value: "Nombre" } }),
                 _vm._v(" "),
                 _c("jet-input", {
                   staticClass: "mt-1 block w-full",
@@ -33999,7 +33972,7 @@ var render = function() {
                 staticClass: "mr-3",
                 attrs: { on: _vm.form.recentlySuccessful }
               },
-              [_vm._v("\n            Saved.\n        ")]
+              [_vm._v("\n            Guardado.\n        ")]
             ),
             _vm._v(" "),
             _c(
@@ -34008,7 +33981,7 @@ var render = function() {
                 class: { "opacity-25": _vm.form.processing },
                 attrs: { disabled: _vm.form.processing }
               },
-              [_vm._v("\n            Save\n        ")]
+              [_vm._v("\n            Guardar\n        ")]
             )
           ]
         },
@@ -34053,11 +34026,7 @@ var render = function() {
                   staticClass:
                     "font-semibold text-xl text-gray-800 leading-tight"
                 },
-                [
-                  _vm._v(
-                    "\n            Crea un nuevo proyecto con Inertia\n        "
-                  )
-                ]
+                [_vm._v("\n            Crea un nuevo proyecto\n        ")]
               )
             ]
           },
@@ -34145,7 +34114,7 @@ var render = function() {
                   _vm._v(
                     "\n            Edita el proyecto " +
                       _vm._s(_vm.project.name) +
-                      " con Inertia\n        "
+                      " \n        "
                   )
                 ]
               )
@@ -34313,11 +34282,7 @@ var render = function() {
                   staticClass:
                     "font-semibold text-xl text-gray-800 leading-tight"
                 },
-                [
-                  _vm._v(
-                    "\n            Listado de proyectos con Inertia\n        "
-                  )
-                ]
+                [_vm._v("\n            Listado de proyectos \n        ")]
               )
             ]
           },

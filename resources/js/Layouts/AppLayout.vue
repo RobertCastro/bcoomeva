@@ -36,11 +36,11 @@
                                 <template #content>
                                     <!-- Account Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        Manage Account
+                                        Administrar Cuenta
                                     </div>
 
                                     <jet-dropdown-link href="/user/profile">
-                                        Profile
+                                        Perfil
                                     </jet-dropdown-link>
 
                                     <jet-dropdown-link href="/user/api-tokens" v-if="$page.jetstream.hasApiFeatures">
@@ -88,7 +88,7 @@
                                     <!-- Authentication -->
                                     <form @submit.prevent="logout">
                                         <jet-dropdown-link as="button">
-                                            Logout
+                                            Salir
                                         </jet-dropdown-link>
                                     </form>
                                 </template>
