@@ -48,12 +48,10 @@
 </template>
 
 <script>
-export default {
-    name: "Project",
-    props: {
-        project: Object,
-
+    export default {
+        name: "Project",
+        props: {
+            project: Object,
+        }
     }
-    
-}
 </script>
