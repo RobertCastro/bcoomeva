@@ -29,4 +29,18 @@ class ProjectController extends Controller
     {
         return Inertia::render("Projects/Create");
     }
+
+    public function store() 
+    {
+        Project::create(
+            $this->validate(request(), [
+                "name" => "required|unique:projects",
+                "excerpt" => "required|min:10|max:200",
+                "content" => "required|min:10|max:1000",
+            ])
+        );
+
+        return redirect()->route('projects.index')->with('success', '¡Proyecto creado!');
+
+    }
 }

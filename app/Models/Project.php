@@ -16,7 +16,7 @@ class Project extends Model
     protected static function boot()
     {
         parent::boot();
-        self::created(function ($table) {
+        self::creating(function ($table) {
             if (!app()->runningInConsole()) {
                 $table->user_id = auth()->id();
             }

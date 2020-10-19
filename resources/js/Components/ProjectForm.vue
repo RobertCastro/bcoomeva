@@ -7,7 +7,7 @@
             <text-input
                 label="Nombre del proyecto"
                 v-model="form.name"
-                :error="errors.name"
+                
             />
         </div>
         <div class="mb-6">
@@ -15,7 +15,7 @@
                 label="Extracto"
                 v-model="form.excerpt"
                 :rows="3"
-                :error="errors.excerpt"
+                
             />
         </div>
         <div class="mb-6">
@@ -23,7 +23,7 @@
                 label="Contenido"
                 v-model="form.content"
                 :rows="6"
-                :error="errors.content"
+                :errors="errors.content"
             />
         </div>
         <div class="px-8 py-4 border-t border-gray-200 flex justify-center items-center">
@@ -43,6 +43,11 @@
         props: {
             errors: Object,
             form: Object,
-        }
+        },
+        mounted (){
+            console.log(this.errors)
+            },
     }
+
+
 </script>
