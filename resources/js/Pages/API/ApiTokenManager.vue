@@ -225,7 +225,7 @@
 
         methods: {
             createApiToken() {
-                this.createApiTokenForm.post(route('api-tokens.store'), {
+                this.createApiTokenForm.post('/user/api-tokens', {
                     preserveScroll: true,
                 }).then(response => {
                     if (! this.createApiTokenForm.hasErrors()) {
@@ -241,7 +241,7 @@
             },
 
             updateApiToken() {
-                this.updateApiTokenForm.put(route('api-tokens.update', this.managingPermissionsFor), {
+                this.updateApiTokenForm.put('/user/api-tokens/' + this.managingPermissionsFor.id, {
                     preserveScroll: true,
                     preserveState: true,
                 }).then(response => {
@@ -254,7 +254,7 @@
             },
 
             deleteApiToken() {
-                this.deleteApiTokenForm.delete(route('api-tokens.destroy', this.apiTokenBeingDeleted), {
+                this.deleteApiTokenForm.delete('/user/api-tokens/' + this.apiTokenBeingDeleted.id, {
                     preserveScroll: true,
                     preserveState: true,
                 }).then(() => {

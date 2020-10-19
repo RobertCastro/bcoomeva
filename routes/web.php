@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +19,8 @@ Route::get('/', function () {
 });
 
 Route::group(["middleware" => ['auth:sanctum', 'verified']], function () {
-
     Route::get("/dashboard", function () {
-        return Inertia::render('Dashboard');
+        return Inertia\Inertia::render('Dashboard');
     })->name("dashboard");
 
     Route::resource("projects", ProjectController::class)->except(["show"]);

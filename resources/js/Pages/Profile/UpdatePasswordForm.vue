@@ -72,7 +72,7 @@
 
         methods: {
             updatePassword() {
-                this.form.put(route('user-password.update'), {
+                this.form.put('/user/password', {
                     preserveScroll: true
                 }).then(() => {
                     this.$refs.current_password.focus()

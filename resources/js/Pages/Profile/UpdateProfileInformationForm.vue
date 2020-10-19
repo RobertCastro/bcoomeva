@@ -20,7 +20,7 @@
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" v-show="! photoPreview">
-                    <img :src="user.profile_photo_url" alt="Current Profile Photo" class="rounded-full h-20 w-20 object-cover">
+                    <img :src="$page.user.profile_photo_url" alt="Current Profile Photo" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
@@ -34,7 +34,7 @@
                     Select A New Photo
                 </jet-secondary-button>
 
-                <jet-secondary-button type="button" class="mt-2" @click.native.prevent="deletePhoto" v-if="user.profile_photo_path">
+                <jet-secondary-button type="button" class="mt-2" @click.native.prevent="deletePhoto" v-if="$page.user.profile_photo_path">
                     Remove Photo
                 </jet-secondary-button>
 
@@ -88,14 +88,14 @@
             JetSecondaryButton,
         },
 
-        props: ['user'],
+        props: ['name', 'email'],
 
         data() {
             return {
                 form: this.$inertia.form({
                     '_method': 'PUT',
-                    name: this.user.name,
-                    email: this.user.email,
+                    name: this.name,
+                    email: this.email,
                     photo: null,
                 }, {
                     bag: 'updateProfileInformation',
@@ -112,7 +112,7 @@
                     this.form.photo = this.$refs.photo.files[0]
                 }
 
-                this.form.post(route('user-profile-information.update'), {
+                this.form.post('/user/profile-information', {
                     preserveScroll: true
                 });
             },
@@ -132,7 +132,7 @@
             },
 
             deletePhoto() {
-                this.$inertia.delete(route('current-user-photo.destroy'), {
+                this.$inertia.delete('/user/profile-photo', {
                     preserveScroll: true,
                 }).then(() => {
                     this.photoPreview = null

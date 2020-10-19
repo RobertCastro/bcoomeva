@@ -16,26 +16,24 @@ class Project extends Model
     protected static function boot()
     {
         parent::boot();
-        self::created(function ($table) {
-            if (!app()->runningInConsole()) {
+        self::creating(function ($table) {
+            if ( ! app()->runningInConsole()) {
                 $table->user_id = auth()->id();
             }
         });
     }
 
-    public function user()
-    {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 
-    public function scopeFilter(Builder $query, array $filters)
-    {
-        if (!request("page")) {
+    public function scopeFilter(Builder $query, array $filters) {
+        if ( ! request("page")) {
             session()->put("search", $filters['search'] ?? null);
             session()->put("trashed", $filters['trashed'] ?? null);
         }
         $query->when(session("search"), function ($query, $search) {
-            $query->where('name', 'LIKE', '%' . $search . '%');
+            $query->where('name', 'LIKE', '%'.$search.'%');
         })->when(session("trashed"), function ($query, $trashed) {
             if ($trashed === 'with') {
                 $query->withTrashed();

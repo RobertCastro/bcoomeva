@@ -6,10 +6,11 @@ import { InertiaApp } from '@inertiajs/inertia-vue';
 import { InertiaForm } from 'laravel-jetstream';
 import PortalVue from 'portal-vue';
 
-// Vue.mixin({ methods: { route } });
-Vue.mixin({ methods: { route: window.route } });
+Vue.mixin({ methods: { route: window.route } })
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
+
+// https://github.com/LinusBorg/portal-vue
 Vue.use(PortalVue);
 
 const app = document.getElementById('app');

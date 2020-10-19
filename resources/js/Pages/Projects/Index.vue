@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Listado de proyectos
+                Listado de proyectos con Inertia
             </h2>
         </template>
         <div class="py-12">
@@ -70,12 +70,6 @@
                                 :project="project"
                             />
                         </table>
-                    </div>
-                    <div class="" v-if="projects.data == 0">
-                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                            <strong class="font-bold">Hola!</strong>
-                            <span class="block sm:inline">No hay datos.</span>
-                        </div>
                     </div>
                 </div>
                 <pagination :links="projects.links" />

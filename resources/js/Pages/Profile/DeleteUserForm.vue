@@ -98,7 +98,7 @@
             },
 
             deleteUser() {
-                this.form.post(route('current-user.destroy'), {
+                this.form.post('/user', {
                     preserveScroll: true
                 }).then(response => {
                     if (! this.form.hasErrors()) {

@@ -7,17 +7,17 @@
                     <div class="flex">
                         <!-- Logo -->
                         <div class="flex-shrink-0 flex items-center">
-                            <inertia-link :href="route('dashboard')">
+                            <a href="/dashboard">
                                 <jet-application-mark class="block h-9 w-auto" />
-                            </inertia-link>
+                            </a>
                         </div>
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
+                            <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
                             </jet-nav-link>
-                            <jet-nav-link :href="route('projects.index')" :active="$page.currentRouteName.includes('projects')">
+                            <jet-nav-link href="/projects" :active="$page.currentRouteName.includes('projects')">
                                 Proyectos
                             </jet-nav-link>
                         </div>
@@ -28,18 +28,8 @@
                         <div class="ml-3 relative">
                             <jet-dropdown align="right" width="48">
                                 <template #trigger>
-                                    <button v-if="$page.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
+                                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                         <img class="h-8 w-8 rounded-full object-cover" :src="$page.user.profile_photo_url" :alt="$page.user.name" />
-                                    </button>
-
-                                    <button v-else class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                                        <div>{{ $page.user.name }}</div>
-
-                                        <div class="ml-1">
-                                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
                                     </button>
                                 </template>
 
@@ -49,11 +39,11 @@
                                         Manage Account
                                     </div>
 
-                                    <jet-dropdown-link :href="route('profile.show')">
+                                    <jet-dropdown-link href="/user/profile">
                                         Profile
                                     </jet-dropdown-link>
 
-                                    <jet-dropdown-link :href="route('api-tokens.index')" v-if="$page.jetstream.hasApiFeatures">
+                                    <jet-dropdown-link href="/user/api-tokens" v-if="$page.jetstream.hasApiFeatures">
                                         API Tokens
                                     </jet-dropdown-link>
 
@@ -66,11 +56,11 @@
                                         </div>
 
                                         <!-- Team Settings -->
-                                        <jet-dropdown-link :href="route('teams.show', $page.user.current_team)">
+                                        <jet-dropdown-link :href="'/teams/' + $page.user.current_team.id">
                                             Team Settings
                                         </jet-dropdown-link>
 
-                                        <jet-dropdown-link :href="route('teams.create')" v-if="$page.jetstream.canCreateTeams">
+                                        <jet-dropdown-link href="/teams/create" v-if="$page.jetstream.canCreateTeams">
                                             Create New Team
                                         </jet-dropdown-link>
 
@@ -121,10 +111,10 @@
             <!-- Responsive Navigation Menu -->
             <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
+                    <jet-responsive-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
                         Dashboard
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link :href="route('projects.index')" :active="$page.currentRouteName.includes('projects')">
+                    <jet-responsive-nav-link href="/projects" :active="$page.currentRouteName.includes('projects')">
                         Proyectos
                     </jet-responsive-nav-link>
                 </div>
@@ -143,11 +133,11 @@
                     </div>
 
                     <div class="mt-3 space-y-1">
-                        <jet-responsive-nav-link :href="route('profile.show')" :active="$page.currentRouteName == 'profile.show'">
+                        <jet-responsive-nav-link href="/user/profile" :active="$page.currentRouteName == 'profile.show'">
                             Profile
                         </jet-responsive-nav-link>
 
-                        <jet-responsive-nav-link :href="route('api-tokens.index')" :active="$page.currentRouteName == 'api-tokens.index'" v-if="$page.jetstream.hasApiFeatures">
+                        <jet-responsive-nav-link href="/user/api-tokens" :active="$page.currentRouteName == 'api-tokens.index'" v-if="$page.jetstream.hasApiFeatures">
                             API Tokens
                         </jet-responsive-nav-link>
 
@@ -167,11 +157,11 @@
                             </div>
 
                             <!-- Team Settings -->
-                            <jet-responsive-nav-link :href="route('teams.show', $page.user.current_team)" :active="$page.currentRouteName == 'teams.show'">
+                            <jet-responsive-nav-link :href="'/teams/' + $page.user.current_team.id" :active="$page.currentRouteName == 'teams.show'">
                                 Team Settings
                             </jet-responsive-nav-link>
 
-                            <jet-responsive-nav-link :href="route('teams.create')" :active="$page.currentRouteName == 'teams.create'">
+                            <jet-responsive-nav-link href="/teams/create" :active="$page.currentRouteName == 'teams.create'">
                                 Create New Team
                             </jet-responsive-nav-link>
 
@@ -183,7 +173,7 @@
                             </div>
 
                             <template v-for="team in $page.user.all_teams">
-                                <form @submit.prevent="switchToTeam(team)" :key="team.id">
+                                <form @submit.prevent="switchToTeam(team)">
                                     <jet-responsive-nav-link as="button">
                                         <div class="flex items-center">
                                             <svg v-if="team.id == $page.user.current_team_id" class="mr-2 h-5 w-5 text-green-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -207,7 +197,7 @@
 
         <!-- Page Content -->
         <main>
-          <div class="py-4" v-if="$page.flash.success">
+            <div class="py-4" v-if="$page.flash.success">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
                         <span class="block sm:inline">{{ $page.flash.success }}</span>
@@ -249,7 +239,7 @@
 
         methods: {
             switchToTeam(team) {
-                this.$inertia.put(route('current-team.update'), {
+                this.$inertia.put('/current-team', {
                     'team_id': team.id
                 }, {
                     preserveState: false
@@ -257,7 +247,7 @@
             },
 
             logout() {
-                axios.post(route('logout').url()).then(response => {
+                axios.post('/logout').then(response => {
                     window.location = '/';
                 })
             },
