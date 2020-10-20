@@ -1,0 +1,4 @@
+﻿name,dni
+robert,12345
+alejo,9876
+cielo,45678
