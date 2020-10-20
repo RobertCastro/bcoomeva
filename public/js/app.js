@@ -2270,7 +2270,7 @@ __webpack_require__.r(__webpack_exports__);
     onFileChange: function onFileChange() {
       var files = this.$refs.csv.files;
       var data = new FormData();
-      data.append('logo', files[0]);
+      data.append('csv', files[0]);
       this.$inertia.post(this.route('dashboard.store'), data);
     }
   }
