@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
@@ -17,8 +18,10 @@ use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
+
+Route::resource("home", HomeController::class)->except(["show"]);
 
 Route::group(["middleware" => ['auth:sanctum', 'verified']], function () {
     // Route::get("/dashboard", function () {
