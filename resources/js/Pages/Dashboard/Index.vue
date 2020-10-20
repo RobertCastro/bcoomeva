@@ -73,6 +73,8 @@
                     </div>
                 </div>
                 <pagination :links="datos.links" />
+                <upload />
+
             </div>
         </div>
     </app-layout>
@@ -84,9 +86,10 @@
     import mapValues from "lodash/mapValues";
     import AppLayout from "../../Layouts/AppLayout";
     import Pagination from "../../Components/Pagination";
+    import Upload from "../../Components/Upload";
     import Dato from "../../Components/Dato";
     export default {
-        components: {Dato, AppLayout, Pagination},
+        components: {Dato, AppLayout, Pagination, Upload},
         props: {
             datos: Object,
             filters: Object,

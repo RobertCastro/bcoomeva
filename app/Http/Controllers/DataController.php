@@ -23,4 +23,29 @@ class DataController extends Controller
                 ->paginate(20),
         ]);
     }
+
+    public function store(Request $request)
+    {
+
+        // $req->validate([
+        //     'file' => 'required|mimes:csv|max:2048'
+        // ]);
+
+        $image = $request->file("logo");
+
+        if ($image) {
+            $fileName =  $image->getClientOriginalName();
+
+            // error_log($fileName);
+
+            var_dump($fileName);
+
+            
+        }
+
+        
+
+        // return redirect()->route('dashboard.index')->with('success', $image.toS);
+
+    }
 }
