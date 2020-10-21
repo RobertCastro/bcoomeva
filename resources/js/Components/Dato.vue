@@ -9,6 +9,9 @@
         <td class="border-t">
             {{ dato.number_table }}
         </td>
+        <td class="border-t">
+            {{ dato.updated_at }}
+        </td>
         <!-- <td class="border-t w-px">
             <inertia-link
                 class="px-4 flex items-center"

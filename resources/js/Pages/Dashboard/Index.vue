@@ -49,11 +49,11 @@
                         </button> -->
 
                         <inertia-link
-                            class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-3 mt-5 px-4 rounded"
+                            class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 mt-5 px-4 rounded"
                             :href="route('projects.create')"
                         >
-                            <span>Crear</span>
-                            <span class="hidden md:inline">Proyecto</span>
+                            <span>Descargar</span>
+                            <span class="hidden md:inline">Datos</span>
                         </inertia-link>
                     </div>
 
@@ -63,6 +63,7 @@
                                 <th class="px-6 pt-6 pb-4">Nombre</th>
                                 <th class="px-6 pt-6 pb-4">Cédula</th>
                                 <th class="px-6 pt-6 pb-4">Número Tabla</th>
+                                <th class="px-6 pt-6 pb-4">Fecha</th>
                             </tr>
                             <dato
                                 v-for="dato in datos.data"
