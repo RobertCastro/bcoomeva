@@ -6,6 +6,7 @@ use App\Models\Data;
 use App\Models\User;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class HomeController extends Controller
@@ -64,5 +65,25 @@ class HomeController extends Controller
 
         }
         
+    }
+    public function register($dni, $ntable)
+    {
+
+        if (!$dni) {
+            return redirect('/home');
+        }
+
+        $user = Data::where('dni', $dni)->first();
+
+        if (!$user or !$ntable) {
+            return redirect('/home');
+        }
+
+        $user->number_table = $ntable;
+        $user->updated_at = date("Y-m-d H:i:s");
+        $user->save();
+
+        return "OK";
+
     }
 }
