@@ -29970,8 +29970,8 @@ var render = function() {
                 {
                   key: key,
                   staticClass:
-                    "mr-1 mb-1 px-4 py-3 text-sm border rounded focus:border-indigo-500 focus:text-indigo-500",
-                  class: { "bg-indigo-600 text-white": link.active },
+                    "mr-1 mb-1 px-4 py-3 text-sm border rounded focus:border-green-500 focus:text-green-500",
+                  class: { "bg-green-600 text-white": link.active },
                   attrs: { href: link.url }
                 },
                 [_vm._v("\n            " + _vm._s(link.label) + "\n        ")]

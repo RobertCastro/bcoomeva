@@ -26,7 +26,7 @@
          <?php $__env->endSlot(); ?>
 
         <div class="mb-4 text-sm text-gray-600">
-            <?php echo e(__('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.')); ?>
+            <?php echo e(__('¿Olvidaste tu contraseña? No hay problema. Simplemente díganos su dirección de correo electrónico y le enviaremos un enlace para restablecer la contraseña que le permitirá elegir una nueva.')); ?>
 
         </div>
 
@@ -87,7 +87,7 @@
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
-                    <?php echo e(__('Email Password Reset Link')); ?>
+                    <?php echo e(__('Enviar Email')); ?>
 
                  <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
