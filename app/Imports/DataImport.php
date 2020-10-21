@@ -18,7 +18,7 @@ class DataImport implements ToModel
         return new Data([
             'name'     => $row[0],
             'dni'    => $row[1],
-            'number_table' => " ",
+            'key' => rand(1111111111, 9999999999),
         ]);
     }
 }
