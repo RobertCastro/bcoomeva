@@ -64,7 +64,8 @@
                 this.processing = true;
                 this.$inertia.post(this.route('home.store'), this.form)
                     .then(() => {
-                        this.processing = false
+                        this.processing = false,
+                        localStorage.setItem('dni', this.form.dni);
                     });
             }
         }

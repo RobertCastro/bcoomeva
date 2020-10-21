@@ -22,6 +22,7 @@ Route::get('/', function () {
 });
 
 Route::resource("home", HomeController::class)->except(["show"]);
+Route::get('/home/{rand}/{user}/game', [HomeController::class, 'game']);
 
 Route::group(["middleware" => ['auth:sanctum', 'verified']], function () {
     // Route::get("/dashboard", function () {

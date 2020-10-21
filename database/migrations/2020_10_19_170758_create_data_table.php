@@ -17,7 +17,8 @@ class CreateDataTable extends Migration
             $table->id();
             $table->string("name");
             $table->string("dni");
-            $table->string("number_table");
+            $table->string("number_table")->nullable();
+            $table->string("key")->nullable();
             $table->timestamps();
         });
     }
