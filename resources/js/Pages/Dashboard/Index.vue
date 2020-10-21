@@ -48,13 +48,17 @@
                             Restablecer filtros
                         </button> -->
 
-                        <inertia-link
+                        <a
                             class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 mt-5 px-4 rounded"
-                            :href="route('projects.create')"
+                            href="/dashboard/export"
+                            target="blank_"
                         >
+                        <svg class="h-5 w-5 inline-block " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
                             <span>Descargar</span>
-                            <span class="hidden md:inline">Datos</span>
-                        </inertia-link>
+                            <!-- <span class="hidden md:inline">Datos</span> -->
+                        </a>
                     </div>
 
                     <div class="bg-white rounded shadow overflow-x-auto">

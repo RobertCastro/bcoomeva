@@ -31,6 +31,7 @@ Route::group(["middleware" => ['auth:sanctum', 'verified']], function () {
     // })->name("dashboard");
 
     Route::resource("dashboard", DataController::class)->except(["show"]);
+    Route::get('dashboard/export/', [DataController::class, 'export'])->name("dashboard.export");
 
     Route::resource("projects", ProjectController::class)->except(["show"]);
 });

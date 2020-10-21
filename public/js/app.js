@@ -4037,6 +4037,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -33546,22 +33550,41 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c(
-                      "inertia-link",
+                      "a",
                       {
                         staticClass:
                           "bg-green-700 hover:bg-green-800 text-white font-bold py-3 mt-5 px-4 rounded",
-                        attrs: { href: _vm.route("projects.create") }
+                        attrs: { href: "/dashboard/export", target: "blank_" }
                       },
                       [
-                        _c("span", [_vm._v("Descargar")]),
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-5 w-5 inline-block ",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                "stroke-width": "2",
+                                d:
+                                  "M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                              }
+                            })
+                          ]
+                        ),
                         _vm._v(" "),
-                        _c("span", { staticClass: "hidden md:inline" }, [
-                          _vm._v("Datos")
-                        ])
+                        _c("span", [_vm._v("Descargar")])
                       ]
                     )
-                  ],
-                  1
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
