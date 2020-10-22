@@ -40,6 +40,17 @@
                             />
                         </div>
 
+                        <button
+                            class="border border-gray-400 hover:border-red-600 text-gray-500 hover:bg-red-600 hover:text-white font-bold py-3 mt-5 px-4 rounded"
+                            type="button"
+                            @click="showModal = true"
+                        >
+                        <svg class="h-5 w-5 inline-block " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                            Borrar Datos
+                        </button>
+
                         <!-- <button
                             class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-3 mt-5 px-4 rounded"
                             type="button"
@@ -81,6 +92,25 @@
                 <pagination :links="datos.links" />
             </div>
         </div>
+        <jet-confirmation-modal :show="showModal" @close="showModal = false">
+            <template #title>
+                Borrar datos
+            </template>
+
+            <template #content>
+                ¿Estás seguro que quieres borrar los datos?
+            </template>
+
+            <template #footer>
+                <jet-secondary-button @click.native="showModal = false">
+                    Cancelar
+                </jet-secondary-button>
+
+                <jet-danger-button @click.native="destroy" class="ml-2" :class="{ 'opacity-25': processing }" :disabled="processing">
+                    Borrar datos
+                </jet-danger-button>
+            </template>
+        </jet-confirmation-modal>
     </app-layout>
 </template>
 
@@ -92,14 +122,19 @@
     import Pagination from "../../Components/Pagination";
     import Upload from "../../Components/Upload";
     import Dato from "../../Components/Dato";
+    import JetConfirmationModal from "../../Jetstream/ConfirmationModal";
+    import JetSecondaryButton from "../../Jetstream/SecondaryButton";
+    import JetDangerButton from "../../Jetstream/DangerButton";
     export default {
-        components: {Dato, AppLayout, Pagination, Upload},
+        components: {Dato, AppLayout, Pagination, Upload, JetConfirmationModal, JetSecondaryButton, JetDangerButton},
         props: {
             datos: Object,
             filters: Object,
         },
         data() {
             return {
+                processing: false,
+                showModal: false,
                 form: {
                     search: this.filters.search,
                     trashed: this.filters.trashed,
@@ -118,6 +153,11 @@
         methods: {
             reset() {
                 this.form = mapValues(this.form, () => null);
+            },
+            destroy() {
+                this.processing = true
+                this.$inertia.delete(this.route('dashboard.destroy', 1))
+                    .then(() => this.processing = false)
             }
         }
     }

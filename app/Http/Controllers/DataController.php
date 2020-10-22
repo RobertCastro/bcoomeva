@@ -40,4 +40,8 @@ class DataController extends Controller
     {
         return Excel::download(new DataExport, 'datos.xlsx');
     }
+
+    public function destroy() {
+        return null;
+    }
 }

@@ -3966,6 +3966,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/Pagination */ "./resources/js/Components/Pagination.vue");
 /* harmony import */ var _Components_Upload__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Components/Upload */ "./resources/js/Components/Upload.vue");
 /* harmony import */ var _Components_Dato__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Components/Dato */ "./resources/js/Components/Dato.vue");
+/* harmony import */ var _Jetstream_ConfirmationModal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../Jetstream/ConfirmationModal */ "./resources/js/Jetstream/ConfirmationModal.vue");
+/* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
+/* harmony import */ var _Jetstream_DangerButton__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../Jetstream/DangerButton */ "./resources/js/Jetstream/DangerButton.vue");
 //
 //
 //
@@ -4052,6 +4055,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 
 
 
@@ -4064,7 +4100,10 @@ __webpack_require__.r(__webpack_exports__);
     Dato: _Components_Dato__WEBPACK_IMPORTED_MODULE_6__["default"],
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_3__["default"],
     Pagination: _Components_Pagination__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Upload: _Components_Upload__WEBPACK_IMPORTED_MODULE_5__["default"]
+    Upload: _Components_Upload__WEBPACK_IMPORTED_MODULE_5__["default"],
+    JetConfirmationModal: _Jetstream_ConfirmationModal__WEBPACK_IMPORTED_MODULE_7__["default"],
+    JetSecondaryButton: _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_8__["default"],
+    JetDangerButton: _Jetstream_DangerButton__WEBPACK_IMPORTED_MODULE_9__["default"]
   },
   props: {
     datos: Object,
@@ -4072,6 +4111,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      processing: false,
+      showModal: false,
       form: {
         search: this.filters.search,
         trashed: this.filters.trashed
@@ -4091,6 +4132,14 @@ __webpack_require__.r(__webpack_exports__);
     reset: function reset() {
       this.form = lodash_mapValues__WEBPACK_IMPORTED_MODULE_2___default()(this.form, function () {
         return null;
+      });
+    },
+    destroy: function destroy() {
+      var _this = this;
+
+      this.processing = true;
+      this.$inertia["delete"](this.route('dashboard.destroy', 1)).then(function () {
+        return _this.processing = false;
       });
     }
   }
@@ -30425,7 +30474,7 @@ var render = function() {
             })
           ]
         ),
-        _vm._v("\n    Importar \n")
+        _vm._v("\n    Importar Datos\n")
       ]
     )
   ])
@@ -33604,6 +33653,48 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "border border-gray-400 hover:border-red-600 text-gray-500 hover:bg-red-600 hover:text-white font-bold py-3 mt-5 px-4 rounded",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.showModal = true
+                          }
+                        }
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-5 w-5 inline-block ",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor"
+                            }
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                "stroke-width": "2",
+                                d:
+                                  "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(
+                          "\n                        Borrar Datos\n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
                     _c("upload"),
                     _vm._v(" "),
                     _c(
@@ -33693,8 +33784,72 @@ var render = function() {
           ],
           1
         )
-      ])
-    ]
+      ]),
+      _vm._v(" "),
+      _c("jet-confirmation-modal", {
+        attrs: { show: _vm.showModal },
+        on: {
+          close: function($event) {
+            _vm.showModal = false
+          }
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "title",
+            fn: function() {
+              return [_vm._v("\n            Borrar datos\n        ")]
+            },
+            proxy: true
+          },
+          {
+            key: "content",
+            fn: function() {
+              return [
+                _vm._v(
+                  "\n            ¿Estás seguro que quieres borrar los datos?\n        "
+                )
+              ]
+            },
+            proxy: true
+          },
+          {
+            key: "footer",
+            fn: function() {
+              return [
+                _c(
+                  "jet-secondary-button",
+                  {
+                    nativeOn: {
+                      click: function($event) {
+                        _vm.showModal = false
+                      }
+                    }
+                  },
+                  [_vm._v("\n                Cancelar\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "jet-danger-button",
+                  {
+                    staticClass: "ml-2",
+                    class: { "opacity-25": _vm.processing },
+                    attrs: { disabled: _vm.processing },
+                    nativeOn: {
+                      click: function($event) {
+                        return _vm.destroy($event)
+                      }
+                    }
+                  },
+                  [_vm._v("\n                Borrar datos\n            ")]
+                )
+              ]
+            },
+            proxy: true
+          }
+        ])
+      })
+    ],
+    1
   )
 }
 var staticRenderFns = []
