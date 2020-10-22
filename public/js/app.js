@@ -2303,6 +2303,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2317,6 +2326,9 @@ __webpack_require__.r(__webpack_exports__);
       var data = new FormData();
       data.append('csv', files[0]);
       this.$inertia.post(this.route('dashboard.store'), data);
+    },
+    selectNewPhoto: function selectNewPhoto() {
+      this.$refs.csv.click();
     }
   }
 });
@@ -3954,7 +3966,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/Pagination */ "./resources/js/Components/Pagination.vue");
 /* harmony import */ var _Components_Upload__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Components/Upload */ "./resources/js/Components/Upload.vue");
 /* harmony import */ var _Components_Dato__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../Components/Dato */ "./resources/js/Components/Dato.vue");
-//
 //
 //
 //
@@ -30369,11 +30380,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("input", {
-    ref: "csv",
-    attrs: { type: "file" },
-    on: { change: _vm.onFileChange }
-  })
+  return _c("div", [
+    _c("input", {
+      ref: "csv",
+      staticClass: "hidden",
+      attrs: { type: "file" },
+      on: { change: _vm.onFileChange }
+    }),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "bg-green-500 hover:bg-green-600 text-white font-bold py-3 mt-5 px-4 rounded",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.selectNewPhoto($event)
+          }
+        }
+      },
+      [
+        _c(
+          "svg",
+          {
+            staticClass: "h-5 w-5 inline-block ",
+            attrs: {
+              xmlns: "http://www.w3.org/2000/svg",
+              fill: "none",
+              viewBox: "0 0 24 24",
+              stroke: "currentColor"
+            }
+          },
+          [
+            _c("path", {
+              attrs: {
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round",
+                "stroke-width": "2",
+                d:
+                  "M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+              }
+            })
+          ]
+        ),
+        _vm._v("\n    Importar \n")
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -32405,7 +32460,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                        Profile\n                    "
+                        "\n                        Perfil\n                    "
                       )
                     ]
                   ),
@@ -32445,7 +32500,7 @@ var render = function() {
                         { attrs: { as: "button" } },
                         [
                           _vm._v(
-                            "\n                            Logout\n                        "
+                            "\n                            Salir\n                        "
                           )
                         ]
                       )
@@ -33549,6 +33604,8 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
+                    _c("upload"),
+                    _vm._v(" "),
                     _c(
                       "a",
                       {
@@ -33581,10 +33638,15 @@ var render = function() {
                           ]
                         ),
                         _vm._v(" "),
-                        _c("span", [_vm._v("Descargar")])
+                        _c("span", [_vm._v("Descargar")]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "hidden md:inline" }, [
+                          _vm._v("Datos")
+                        ])
                       ]
                     )
-                  ]
+                  ],
+                  1
                 ),
                 _vm._v(" "),
                 _c(
@@ -33627,9 +33689,7 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("pagination", { attrs: { links: _vm.datos.links } }),
-            _vm._v(" "),
-            _c("upload")
+            _c("pagination", { attrs: { links: _vm.datos.links } })
           ],
           1
         )
