@@ -7,14 +7,14 @@
                         <p class="text-green-700 font-bold">Hola {{ user.name }}!</p>
                     </div>
                 </div>
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0 text-center">
-                    <div class="w-full" v-if="msg">
-                        <p class="text-red-500 font-bold">{{ msg }}</p>
-                    </div>
-                </div>
                 <div class="w-full flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <div class="w-full">
                         <jet-application-mark class="block h-15 w-full mb-8" />
+                    </div>
+                </div>
+                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0 text-center">
+                    <div class="w-full" v-if="msg">
+                        <p class="text-red-500 font-bold">{{ msg }}</p>
                     </div>
                 </div>
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0 ">

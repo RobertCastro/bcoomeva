@@ -33969,23 +33969,6 @@ var render = function() {
             "div",
             {
               staticClass:
-                "flex justify-center pt-8 sm:justify-start sm:pt-0 text-center"
-            },
-            [
-              _vm.msg
-                ? _c("div", { staticClass: "w-full" }, [
-                    _c("p", { staticClass: "text-red-500 font-bold" }, [
-                      _vm._v(_vm._s(_vm.msg))
-                    ])
-                  ])
-                : _vm._e()
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
                 "w-full flex justify-center pt-8 sm:justify-start sm:pt-0"
             },
             [
@@ -33999,6 +33982,23 @@ var render = function() {
                 ],
                 1
               )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "flex justify-center pt-8 sm:justify-start sm:pt-0 text-center"
+            },
+            [
+              _vm.msg
+                ? _c("div", { staticClass: "w-full" }, [
+                    _c("p", { staticClass: "text-red-500 font-bold" }, [
+                      _vm._v(_vm._s(_vm.msg))
+                    ])
+                  ])
+                : _vm._e()
             ]
           ),
           _vm._v(" "),
