@@ -33,7 +33,7 @@ class DataController extends Controller
         $path = storage_path('app') . '/' . $path1;
         $data = Excel::import(new DataImport, $path);
 
-        return redirect()->route('dashboard.index')->with('success', "Importado!");
+        return redirect()->route('dashboard.index')->with('success', "Datos Importados!");
     }
 
     public function export()
