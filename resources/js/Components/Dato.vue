@@ -10,7 +10,7 @@
             {{ dato.number_table }}
         </td>
         <td class="border-t">
-            {{ dato.updated_at }}
+            {{ formattedDate }}
         </td>
         <!-- <td class="border-t w-px">
             <inertia-link
@@ -33,6 +33,12 @@
         name: "Dato",
         props: {
             dato: Object,
-        }
+        },
+
+        computed: {
+            formattedDate() {
+                return moment(this.dato.updated_at).format('lll');
+            }
+        },
     }
 </script>

@@ -21,7 +21,7 @@ class DataController extends Controller
         return Inertia::render("Dashboard/Index", [
             "filters" => session()->only(["search", "trashed"]),
             "datos" => Data::where('number_table','<>', '',)
-            // ->orderByDesc("id")
+            ->orderByDesc("id")
                 ->filter(request()->only("search", "trashed"))
                 ->paginate(20),
         ]);
