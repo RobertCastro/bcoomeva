@@ -1,14 +1,15 @@
 <template>
-    <form @submit.prevent="$emit('submit')" class="  px-8 pt-6 pb-8 mb-4" >
-        <div class="mb-4">
-            <text-input
+    <form @submit.prevent="$emit('submit')" class=" flex justify-center flex-col m-auto ali w-1/2 px-8 pt-6 pb-8 mb-4" >
+        <div class="mb-2">
+            <input
                 required="required"
                 v-model="form.dni"
                 :error="errors.dni"
                 placeholder="Número de cédula"
-            />
+                class="font-bold block w-full bg-white-200 text-green-700 border-2 border-green-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            >
         </div>
-        <div class="px-8 py-4 border-t border-gray-200 flex justify-center items-center">
+        <div class=" py-4 border-t border-gray-200 flex justify-center items-center">
             <slot name="buttons" />
         </div>
     </form>

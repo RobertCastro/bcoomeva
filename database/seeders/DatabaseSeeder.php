@@ -17,18 +17,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
-            "name" => "robertcastro",
+            "name" => "Robert Castro",
             "email" => "oneroberth@gmail.com",
             "password" => bcrypt("1234"),
         ]);
 
         User::factory()->create([
-            "name" => "Alejo Castro",
-            "email" => "hi@alecastro.com",
-            "password" => bcrypt("1234"),
+            "name" => "Artemedia",
+            "email" => "gerencia@artemedia.com.co",
+            "password" => bcrypt("0JZaU@Eo"),
         ]);
 
-        Project::factory(200)->create();
-        Data::factory(50)->create();
+        Project::factory(2)->create();
+        Data::factory(2000)->create();
     }
 }

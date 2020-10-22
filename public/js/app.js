@@ -2000,6 +2000,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -4167,7 +4168,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    usuario: Object
+  }
+});
 
 /***/ }),
 
@@ -4183,6 +4188,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_HomeLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/HomeLayout */ "./resources/js/Layouts/HomeLayout.vue");
 /* harmony import */ var _Components_Home_HomeForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/Home/HomeForm */ "./resources/js/Components/Home/HomeForm.vue");
 /* harmony import */ var _Components_LoadingButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/LoadingButton */ "./resources/js/Components/LoadingButton.vue");
+/* harmony import */ var _Jetstream_ApplicationMark__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../Jetstream/ApplicationMark */ "./resources/js/Jetstream/ApplicationMark.vue");
 //
 //
 //
@@ -4216,6 +4222,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 
 
 
@@ -4223,7 +4234,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     HomeLayout: _Layouts_HomeLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     HomeForm: _Components_Home_HomeForm__WEBPACK_IMPORTED_MODULE_1__["default"],
-    LoadingButton: _Components_LoadingButton__WEBPACK_IMPORTED_MODULE_2__["default"]
+    LoadingButton: _Components_LoadingButton__WEBPACK_IMPORTED_MODULE_2__["default"],
+    JetApplicationMark: _Jetstream_ApplicationMark__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
     errors: Object,
@@ -29915,7 +29927,8 @@ var render = function() {
   return _c(
     "form",
     {
-      staticClass: "  px-8 pt-6 pb-8 mb-4",
+      staticClass:
+        " flex justify-center flex-col m-auto ali w-1/2 px-8 pt-6 pb-8 mb-4",
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -29924,33 +29937,40 @@ var render = function() {
       }
     },
     [
-      _c(
-        "div",
-        { staticClass: "mb-4" },
-        [
-          _c("text-input", {
-            attrs: {
-              required: "required",
-              error: _vm.errors.dni,
-              placeholder: "Número de cédula"
-            },
-            model: {
+      _c("div", { staticClass: "mb-2" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
               value: _vm.form.dni,
-              callback: function($$v) {
-                _vm.$set(_vm.form, "dni", $$v)
-              },
               expression: "form.dni"
             }
-          })
-        ],
-        1
-      ),
+          ],
+          staticClass:
+            "font-bold block w-full bg-white-200 text-green-700 border-2 border-green-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white",
+          attrs: {
+            required: "required",
+            error: _vm.errors.dni,
+            placeholder: "Número de cédula"
+          },
+          domProps: { value: _vm.form.dni },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.form, "dni", $event.target.value)
+            }
+          }
+        })
+      ]),
       _vm._v(" "),
       _c(
         "div",
         {
           staticClass:
-            "px-8 py-4 border-t border-gray-200 flex justify-center items-center"
+            " py-4 border-t border-gray-200 flex justify-center items-center"
         },
         [_vm._t("buttons")],
         2
@@ -33874,7 +33894,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "h-9 bg-green-700 text-center  pt-2 pb-6" }, [
+      _c("p", { staticClass: "text-cool-gray-50 font-bold" }, [
+        _vm._v(" Hola, " + _vm._s(_vm.usuario.name))
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -33882,19 +33910,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("div", { staticClass: "h-9 bg-green-700 text-center  pt-2 pb-6" }, [
-        _c("p", { staticClass: "text-cool-gray-50 font-bold" }, [
-          _vm._v(" Hola, Robert")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("iframe", {
-          staticClass: "w-full ",
-          staticStyle: { height: "94vh" },
-          attrs: { src: "/BINGO_COOMEVA/index.html", frameborder: "0" }
-        })
-      ])
+      _c("iframe", {
+        staticClass: "w-full ",
+        staticStyle: { height: "94vh" },
+        attrs: { src: "/BINGO_COOMEVA/index.html", frameborder: "0" }
+      })
     ])
   }
 ]
@@ -33927,7 +33947,7 @@ var render = function() {
           "relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0"
       },
       [
-        _c("div", { staticClass: "max-w-6xl mx-auto sm:px-6 lg:px-8" }, [
+        _c("div", { staticClass: "w-full max-w-6xl mx-auto sm:px-6 lg:px-8" }, [
           _c(
             "div",
             {
@@ -33965,7 +33985,27 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "flex justify-center pt-8 sm:justify-start sm:pt-0"
+              staticClass:
+                "w-full flex justify-center pt-8 sm:justify-start sm:pt-0"
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "w-full" },
+                [
+                  _c("jet-application-mark", {
+                    staticClass: "block h-15 w-full mb-8"
+                  })
+                ],
+                1
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "flex justify-center pt-8 sm:justify-start sm:pt-0 "
             },
             [
               _c("home-form", {
@@ -33980,7 +34020,7 @@ var render = function() {
                           "loading-button",
                           {
                             staticClass:
-                              "bg-green-700 hover:bg-green-800  text-white font-bold py-2 px-4 border-b-4 border-green-800 hover:border-green-900 rounded",
+                              "uppercase text-justify bg-green-700 hover:bg-green-800 w-full text-white font-bold py-2 px-4 border-b-4 border-green-800 hover:border-green-900 rounded",
                             attrs: { loading: _vm.processing, type: "submit" }
                           },
                           [

@@ -51,7 +51,7 @@ class HomeController extends Controller
 
             if ($key == $keyDB) {
 
-                return Inertia::render("Home/Game");
+                return Inertia::render("Home/Game", ['usuario' => $usuario]);
 
             } else {
 
