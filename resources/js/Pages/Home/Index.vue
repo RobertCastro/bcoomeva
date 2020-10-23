@@ -2,11 +2,11 @@
     <home-layout>
         <div class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0">
             <div class="w-full max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0 text-center">
+                <!-- <div class="flex justify-center pt-8 sm:justify-start sm:pt-0 text-center">
                     <div class="w-full" v-if="user">
                         <p class="text-green-700 font-bold">Hola {{ user.name }}!</p>
                     </div>
-                </div>
+                </div> -->
                 <div class="w-full flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <div class="w-full">
                         <jet-application-mark class="block h-15 w-full mb-8" />
@@ -22,7 +22,7 @@
                         <template #buttons>
                             <loading-button
                                 :loading="processing"
-                                class="uppercase text-justify bg-green-700 hover:bg-green-800 w-full text-white font-bold py-2 px-4 border-b-4 border-green-800 hover:border-green-900 rounded"
+                                class="justify-center uppercase text-justify bg-green-700 hover:bg-green-800 w-full text-white font-bold py-2 px-4 border-b-4 border-green-800 hover:border-green-900 rounded"
                                 type="submit"
                             >
                                 Buscar
