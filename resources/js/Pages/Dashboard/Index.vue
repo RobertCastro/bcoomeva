@@ -133,7 +133,10 @@
             destroy() {
                 this.processing = true
                 this.$inertia.delete(this.route('dashboard.destroy', 1))
-                    .then(() => this.processing = false)
+                    .then(() => {
+                        this.processing = false;
+                        this.showModal = false;
+                    })
             }
         }
     }

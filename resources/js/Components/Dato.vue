@@ -6,7 +6,7 @@
         <td class="border-t">
             {{ dato.dni }}
         </td>
-        <td class="border-t">
+        <td class="border-t text-center md:text-left">
             {{ dato.number_table }}
         </td>
         <td class="border-t">

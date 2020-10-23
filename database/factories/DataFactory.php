@@ -29,7 +29,7 @@ class DataFactory extends Factory
         return [
             "name" => $this->faker->name,
             "dni" => $this->faker->numberBetween(1111111111, 9999999999),
-            "number_table" => $this->faker->numberBetween(1,99),
+            // "number_table" => $this->faker->numberBetween(1,99),
             "key" => $this->faker->numberBetween(1111111111, 9999999999),
         ];
     }

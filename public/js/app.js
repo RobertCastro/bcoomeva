@@ -4121,7 +4121,8 @@ __webpack_require__.r(__webpack_exports__);
 
       this.processing = true;
       this.$inertia["delete"](this.route('dashboard.destroy', 1)).then(function () {
-        return _this.processing = false;
+        _this.processing = false;
+        _this.showModal = false;
       });
     }
   }
@@ -51444,7 +51445,7 @@ var render = function() {
         _vm._v("\n        " + _vm._s(_vm.dato.dni) + "\n    ")
       ]),
       _vm._v(" "),
-      _c("td", { staticClass: "border-t" }, [
+      _c("td", { staticClass: "border-t text-center md:text-left" }, [
         _vm._v("\n        " + _vm._s(_vm.dato.number_table) + "\n    ")
       ]),
       _vm._v(" "),
