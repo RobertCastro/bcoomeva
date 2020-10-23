@@ -26,6 +26,10 @@
     animation: spinning 1s infinite linear;
 }
 
+.btn-home{
+    font-size: 20px !important;
+}
+
 @keyframes spinning {
     0% { transform: rotate(0deg) }
     100% { transform: rotate(360deg) }

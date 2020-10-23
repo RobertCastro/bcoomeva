@@ -4,7 +4,7 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\HttpKernel\DataCollector\DataCollector;
+use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,12 +26,13 @@ Route::get('/home/{rand}/{user}/game', [HomeController::class, 'game']);
 Route::get('/home/{dni}/{ntable}', [HomeController::class, 'register']);
 
 Route::group(["middleware" => ['auth:sanctum', 'verified']], function () {
-    // Route::get("/dashboard", function () {
-    //     return Inertia\Inertia::render('Dashboard');
-    // })->name("dashboard");
 
     Route::resource("dashboard", DataController::class)->except(["show"]);
     Route::get('dashboard/export/', [DataController::class, 'export'])->name("dashboard.export");
+
+    // override register only users logged
+    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store']);
 
     Route::resource("projects", ProjectController::class)->except(["show"]);
 });

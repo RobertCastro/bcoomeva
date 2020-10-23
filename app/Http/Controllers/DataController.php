@@ -20,8 +20,8 @@ class DataController extends Controller
         }
         return Inertia::render("Dashboard/Index", [
             "filters" => session()->only(["search", "trashed"]),
-            "datos" => Data::where('number_table','<>', '',)
-            ->orderByDesc("id")
+            "datos" => Data::where('name','<>', '',)
+            ->orderByDesc("updated_at")
                 ->filter(request()->only("search", "trashed"))
                 ->paginate(20),
         ]);
@@ -42,6 +42,7 @@ class DataController extends Controller
     }
 
     public function destroy() {
-        return null;
+        Data::truncate();
+        return redirect()->route('dashboard.index')->with('success', "Datos Eliminados!");
     }
 }
