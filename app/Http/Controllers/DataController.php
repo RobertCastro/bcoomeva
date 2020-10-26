@@ -42,7 +42,8 @@ class DataController extends Controller
     }
 
     public function destroy() {
-        Data::truncate();
+        // Data::truncate();
+        Data::where('number_table', '<>', '',)->update(['number_table' => '']);
         return redirect()->route('dashboard.index')->with('success', "Datos Eliminados!");
     }
 }
