@@ -1,5 +1,6 @@
-<template>
-	<svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 	 x="0px" y="0px" viewBox="0 0 196.268 91.517" xml:space="preserve">
 <path fill-rule="evenodd" fill="#008244" d="M0,53.857C11.869,18.785,34.621,0,34.621,0c12.277,16.072,17.311,28.851,17.311,28.851
 	C43.077,15.349,36.546,7.693,36.546,7.693C11.012,29.816,0,53.857,0,53.857"/>
@@ -205,5 +206,4 @@
 	c-0.386-0.186-0.693-0.457-0.915-0.829c-0.222-0.365-0.336-0.829-0.343-1.388c0.014-0.821,0.285-1.479,0.814-1.967
 	c0.536-0.477,1.259-0.828,2.173-1.035c0.915-0.208,1.945-0.308,3.104-0.301V65.342z"/>
 <rect x="-148.232" y="-348.644" fill="none" width="612" height="792"/>
-	</svg>
-</template>
+</svg>
