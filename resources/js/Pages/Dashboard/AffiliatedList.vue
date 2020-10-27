@@ -32,10 +32,8 @@
                             <tr class="text-left font-bold">
                                 <th class="px-6 pt-6 pb-4">Nombre</th>
                                 <th class="px-6 pt-6 pb-4">Cédula</th>
-                                <th class="px-6 pt-6 pb-4">Número Tabla</th>
-                                <th class="px-6 pt-6 pb-4">Fecha</th>
                             </tr>
-                            <dato
+                            <affiliated
                                 v-for="dato in datos.data"
                                 :key="dato.id"
                                 :dato="dato"
@@ -57,10 +55,10 @@
     import AppLayout from "../../Layouts/AppLayout";
     import Pagination from "../../Components/Pagination";
     import Upload from "../../Components/Upload";
-    import Dato from "../../Components/Dato";
+    import Affiliated from "../../Components/Affiliated";
 
     export default {
-        components: {Dato, AppLayout, Pagination, Upload},
+        components: {Affiliated, AppLayout, Pagination, Upload},
         props: {
             datos: Object,
             filters: Object,
