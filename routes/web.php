@@ -29,6 +29,7 @@ Route::group(["middleware" => ['auth:sanctum', 'verified']], function () {
 
     Route::resource("dashboard", DataController::class)->except(["show"]);
     Route::get('dashboard/export/', [DataController::class, 'export'])->name("dashboard.export");
+    Route::get('dashboard/affiliated/', [DataController::class, 'affiliated'])->name("dashboard.affiliated");
 
     // override register only users logged
     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
