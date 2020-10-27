@@ -8,14 +8,17 @@
                         <!-- Logo -->
                         <div class="flex-shrink-0 flex items-center">
                             <a href="/dashboard">
-                                <jet-application-mark class="block h-11 w-auto" />
+                                <jet-application-mark class="block h-15 w-auto" />
                             </a>
                         </div>
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
-                                Dashboard
+                            <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard.index'">
+                                Informe
+                            </jet-nav-link>
+                            <jet-nav-link href="/dashboard/affiliated" :active="$page.currentRouteName == 'dashboard.affiliated'">
+                                Asociados
                             </jet-nav-link>
                            
                         </div>

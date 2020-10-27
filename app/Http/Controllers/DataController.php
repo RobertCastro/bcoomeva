@@ -20,8 +20,23 @@ class DataController extends Controller
         }
         return Inertia::render("Dashboard/Index", [
             "filters" => session()->only(["search", "trashed"]),
-            "datos" => Data::where('name','<>', '',)
+            "datos" => Data::where('number_table','<>', '',)
             ->orderByDesc("updated_at")
+                ->filter(request()->only("search", "trashed"))
+                ->paginate(20),
+        ]);
+    }
+
+    public function affiliated()
+    {
+        if (!session()->has("search")) {
+            session()->put("search", null);
+            session()->put("trashed", null);
+        }
+        return Inertia::render("Dashboard/AffiliatedList", [
+            "filters" => session()->only(["search", "trashed"]),
+            "datos" => Data::where('name', '<>', '',)
+                ->orderByDesc("updated_at")
                 ->filter(request()->only("search", "trashed"))
                 ->paginate(20),
         ]);
@@ -33,7 +48,7 @@ class DataController extends Controller
         $path = storage_path('app') . '/' . $path1;
         $data = Excel::import(new DataImport, $path);
 
-        return redirect()->route('dashboard.index')->with('success', "Datos Importados!");
+        return redirect()->route('dashboard.affiliated')->with('success', "Datos Importados!");
     }
 
     public function export()
@@ -42,7 +57,8 @@ class DataController extends Controller
     }
 
     public function destroy() {
-        Data::truncate();
+        // Data::truncate();
+        Data::where('number_table', '<>', '',)->update(['number_table' => '']);
         return redirect()->route('dashboard.index')->with('success', "Datos Eliminados!");
     }
 }

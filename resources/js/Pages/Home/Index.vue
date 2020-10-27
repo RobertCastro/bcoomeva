@@ -9,7 +9,7 @@
                 </div> -->
                 <div class="w-full flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <div class="w-full">
-                        <jet-application-mark class="block h-15 w-full mb-8" />
+                        <jet-application-mark class="block h-20 w-full mb-8" />
                     </div>
                 </div>
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0 text-center">

@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Datos
+                Informe
             </h2>
         </template>
         <div class="py-12">
@@ -34,8 +34,6 @@
                             Borrar Datos
                         </button>
 
-                        <upload />
-
                         <a
                             class="bg-green-700 hover:bg-green-800 text-white font-bold py-3 mt-5 px-4 rounded"
                             href="/dashboard/export"
@@ -49,7 +47,7 @@
                         </a>
                     </div>
 
-                    <div class="bg-white rounded shadow overflow-x-auto">
+                    <div class="bg-white rounded shadow overflow-x-auto" v-if="datos.data != ''">
                         <table class="w-full whitespace-no-wrap">
                             <tr class="text-left font-bold">
                                 <th class="px-6 pt-6 pb-4">Nombre</th>
@@ -63,6 +61,15 @@
                                 :dato="dato"
                             />
                         </table>
+                    </div>
+                    
+                    <div v-if="datos.data == ''" class="bg-green-100 border-t-4 border-green-500 rounded-b text-green-900 px-4 py-3 shadow-md" role="alert">
+                    <div class="flex">
+                        <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+                        <div>
+                        <p class="font-bold">No hay datos</p>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <pagination :links="datos.links" />

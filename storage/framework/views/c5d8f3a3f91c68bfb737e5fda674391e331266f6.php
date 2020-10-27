@@ -6,6 +6,10 @@
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
         <meta name="theme-color" content="#046c4e">
         <link rel="icon" href="/favicon.png" type="image/x-icon" />
+        
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
 
         <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
