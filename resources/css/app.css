@@ -30,6 +30,13 @@
     font-size: 20px !important;
 }
 
+main.login{
+    background-image: url("/img/fondo_login.jpg");
+    background-position: center, center;
+    background-repeat: initial;
+    background-size: cover;
+}
+
 @keyframes spinning {
     0% { transform: rotate(0deg) }
     100% { transform: rotate(360deg) }
